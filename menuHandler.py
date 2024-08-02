@@ -1,4 +1,6 @@
 from bots import *
+from actions import GameActions as Ga
+import json
 
 def print_title():
     print(r"""
@@ -34,89 +36,90 @@ def get_string_input(prompt):
     """Get string input from the user."""
     return input(prompt).strip()
 
-def handle_move(client, character_name):
+def handle_move(character_name):
     """Handle movement input and call the move_character function."""
     x = get_int_input("Enter new x coordinate: ")
     y = get_int_input("Enter new y coordinate: ")
-    move_character(client, character_name, x, y)
+    return Ga.move_character(character_name, x, y)
 
 def handle_fight(character_name):
     """Call the perform_fight function."""
-    perform_fight(character_name)
+    return Ga.perform_fight(character_name)
 
 def handle_crafting(character_name):
     """Handle crafting input and call the crafting function."""
     item_code = get_string_input("Enter item code: ")
     quantity = get_int_input("Enter quantity: ")
-    crafting(character_name, item_code, quantity)
+    return Ga.crafting(character_name, item_code, quantity)
 
 def handle_gathering(character_name):
     """Call the gathering function."""
-    gathering(character_name)
+    return Ga.gathering(character_name)
 
 def handle_unequip(character_name):
     """Handle unequip input and call the unequip function."""
     slot = get_string_input("Enter the slot to unequip (e.g., weapon): ")
-    unequip(character_name, slot)
+    return Ga.unequip(character_name, slot)
 
 def handle_deposit_bank(character_name):
     """Handle deposit bank input and call the deposit_bank function."""
     code = get_string_input("Enter item code: ")
     quantity = get_int_input("Enter quantity: ")
-    deposit_bank(character_name, code, quantity)
+    return Ga.deposit_bank(character_name, code, quantity)
 
 def handle_deposit_gold(character_name):
     """Handle deposit gold input and call the deposit_gold function."""
     quantity = get_int_input("Enter quantity: ")
-    deposit_gold(character_name, quantity)
+    return Ga.deposit_gold(character_name, quantity)
 
 def handle_withdraw_bank(character_name):
     """Handle withdraw bank input and call the withdraw_bank function."""
     code = get_string_input("Enter item code: ")
     quantity = get_int_input("Enter quantity: ")
-    withdraw_bank(character_name, code, quantity)
+    return Ga.withdraw_bank(character_name, code, quantity)
 
 def handle_withdraw_gold(character_name):
     """Handle withdraw gold input and call the withdraw_gold function."""
     quantity = get_int_input("Enter quantity: ")
-    withdraw_gold(character_name, quantity)
+    return Ga.withdraw_gold(character_name, quantity)
 
 def handle_buy_ge(character_name):
     """Handle buy GE input and call the buy_ge function."""
     code = get_string_input("Enter item code: ")
     quantity = get_int_input("Enter quantity: ")
     price = get_int_input("Enter price: ")
-    buy_ge(character_name, code, quantity, price)
+    return Ga.buy_ge(character_name, code, quantity, price)
 
 def handle_sell_ge(character_name):
     """Handle sell GE input and call the sell_ge function."""
     code = get_string_input("Enter item code: ")
     quantity = get_int_input("Enter quantity: ")
     price = get_int_input("Enter price: ")
-    sell_ge(character_name, code, quantity, price)
+    return Ga.sell_ge(character_name, code, quantity, price)
 
 def handle_new_task(character_name):
     """Call the new_task function."""
-    new_task(character_name)
+    return Ga.new_task(character_name)
 
 def handle_complete_task(character_name):
     """Call the complete_task function."""
-    complete_task(character_name)
+    return Ga.complete_task(character_name)
 
 def handle_task_exchange(character_name):
     """Call the task_exchange function."""
-    task_exchange(character_name)
+    return Ga.task_exchange(character_name)
 
 def handle_delete_item(character_name):
     """Handle delete item input and call the delete_item function."""
     code = get_string_input("Enter item code: ")
     quantity = get_int_input("Enter quantity: ")
-    delete_item(character_name, code, quantity)
+    return Ga.delete_item(character_name, code, quantity)
 
 def handle_check_character_status(character_name):
     """Handle character status check input and call the get_character_status function."""
-    status = get_character_status(character_name)
+    status = Ga.get_character_status(character_name)
     print(json.dumps(status, indent=2))
+    return status
 
 
 def activate_bot(character_name):
