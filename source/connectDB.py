@@ -1,6 +1,7 @@
 from pymongo import MongoClient
 import json
 import pickle
+import requests
 
 
 class MongoDBClient:
@@ -88,25 +89,3 @@ class MongoDBClient:
             self.client.close()
             print("Closed MongoDB connection.")
 
-
-# Example usage:
-uri = "mongodb://localhost:27017"
-db_name = "MMODataBase"
-
-client = MongoDBClient(uri, db_name)
-client.connect()
-
-# Load the database from a binary file
-data = client.load_mongo_database_from_binary("D:\\Projects\\MMO_LLM\\resources\\test.bin")
-
-# Fetch and print collections
-collections_to_fetch = ["API", "Items", "Maps", "Monsters", "Resources"]
-for collection_name in collections_to_fetch:
-    print(f"Fetching data from collection: {collection_name}")
-    json_data = client.fetch_collection(collection_name)
-    print(json_data)
-
-if data:
-    client.import_data_to_mongo(data)
-
-    client.close_connection()
