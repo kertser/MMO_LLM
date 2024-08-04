@@ -90,8 +90,8 @@ class MongoDBClient:
 
 
 # Example usage:
-uri = "mongodb://localhost:27017"  # Replace with your MongoDB URI
-db_name = "MMODataBase"  # Replace with your database name
+uri = "mongodb://localhost:27017"
+db_name = "MMODataBase"
 
 client = MongoDBClient(uri, db_name)
 client.connect()
