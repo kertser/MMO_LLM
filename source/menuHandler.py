@@ -1,5 +1,3 @@
-
-from bots import *
 from actions import GameActions as Ga
 import json
 
@@ -122,7 +120,7 @@ def handle_check_character_status(character_name):
     print(json.dumps(status, indent=2))
     return status
 
-
+"""
 def activate_bot(character_name):
     print("Select a bot to activate:")
     print("1. Mob Slayer Bot    |   2. Ore Mining Mob")
@@ -138,3 +136,5 @@ def activate_bot(character_name):
         mine_bot(character_name, number_of_resources)
     else:
         print("Invalid bot selection.")
+        
+"""

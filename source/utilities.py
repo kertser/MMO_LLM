@@ -193,7 +193,5 @@ class GameUtilities:
             return response.get("data", [])
         return {}
 
-# Example usage:
-resources = GameUtilities.get_resource_info(None, 'ash_wood')
-tiles = GameUtilities.get_tiles_with_content('resource', resources[0]['code'])
-print(tiles)
+
+
