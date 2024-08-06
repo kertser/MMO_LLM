@@ -51,7 +51,8 @@ class GameActions:
                 print(f"The fight ended successfully. You have {data['fight']['result']}.")
                 cooldown = data['cooldown']['total_seconds']
                 time.sleep(cooldown)
-        return response
+                return True
+        return False
 
     @staticmethod
     def crafting(character_name, item_code, quantity):
@@ -115,7 +116,7 @@ class GameActions:
         Returns:
             dict: The response from the API containing character status information.
         """
-        endpoint = f"my/{character_name}/status"
+        endpoint = f"characters/{character_name}"
         return client.get(endpoint)
 
     @staticmethod

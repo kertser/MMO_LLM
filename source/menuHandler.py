@@ -117,7 +117,6 @@ def handle_delete_item(character_name):
 def handle_check_character_status(character_name):
     """Handle character status check input and call the get_character_status function."""
     status = Ga.get_character_status(character_name)
-    print(json.dumps(status, indent=2))
     return status
 
 """
