@@ -1,6 +1,7 @@
 import config
 import menuHandler as mH
 import connect
+from utilities import GameUtilities as Gu
 
 def main():
 
@@ -22,6 +23,7 @@ def main():
         13: mH.handle_new_task, 14: mH.handle_complete_task, 15: mH.handle_task_exchange,
         16: mH.handle_delete_item, 17: mH.activate_bot
     }
+
 
     choice = 0 # default value
     while (choice != 18):
