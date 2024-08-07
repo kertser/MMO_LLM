@@ -202,7 +202,15 @@ class BotActions:
 
 
 #Example usages:
+
 #Go to the weaponcrafting workshop
-workshop = Gu.get_tiles_with_content('workshop', 'weaponcrafting')[0]
-print(workshop)
+workshop = Gu.get_tiles_with_content('workshop', 'weaponcrafting')
 Ga.move_character('Sylphy',workshop.get('x'), workshop.get('y'))
+
+#Check what items you can craft
+craftable_items = []
+inventory = BotActions.get_inventory('Sylphy')
+for item in inventory:
+    if len(item['code']) > 0:
+        craftable_items.append(Gu.get_item_info(craft_material=item['code']))
+print(craftable_items)

@@ -26,7 +26,7 @@ class GameUtilities:
 
         response = client.get(endpoint, params=params)
         if response:
-            return response.get("data", [])
+            return response["data"][0]
         return []
 
     @staticmethod
@@ -51,7 +51,7 @@ class GameUtilities:
             endpoint = f"/items/{item_code}"
             response = client.get(endpoint)
             if response:
-                return response.get("data", {})
+                return response["data"][0]
         else:
             endpoint = "/items"
             params = {
@@ -67,7 +67,7 @@ class GameUtilities:
 
             response = client.get(endpoint, params=params)
             if response:
-                return response.get("data", [])
+                return response["data"][0]
         return {}
 
     def get_monster_info(monster_code=None, drop=None, max_level=None, min_level=None, page=1, size=50):
@@ -105,7 +105,7 @@ class GameUtilities:
 
             response = client.get(endpoint, params=params)
             if response:
-                return response.get("data", [])
+                return response["data"][0]
         return {}
 
     @staticmethod
@@ -129,7 +129,7 @@ class GameUtilities:
             endpoint = f"/resources/{resource_code}"
             response = client.get(endpoint)
             if response:
-                return response.get("data", {})
+                return response["data"][0]
         else:
             endpoint = "/resources"
             params = {
@@ -144,7 +144,7 @@ class GameUtilities:
 
             response = client.get(endpoint, params=params)
             if response:
-                return response.get("data", [])
+                return response["data"][0]
         return {}
 
     @staticmethod
@@ -167,7 +167,7 @@ class GameUtilities:
 
         response = client.get(endpoint, params=params)
         if response:
-            return response.get("data", [])
+            return response["data"][0]
         return []
 
     @staticmethod
@@ -190,7 +190,7 @@ class GameUtilities:
 
         response = client.get(endpoint, params=params)
         if response:
-            return response.get("data", [])
+            return response["data"][0]
         return {}
 
 
