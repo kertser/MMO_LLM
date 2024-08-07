@@ -1,6 +1,11 @@
+"""
+This is a collection of helper functions for interacting with the game's API.
+These functions encapsulate common operations such as fetching tile information
+"""
 from connect import client
+#! TODO: remove the page parameter from the list of arguments
 
-
+# Representing the class of utility functions with static methods
 class GameUtilities:
     @staticmethod
     def get_tiles_with_content(content_type=None, content_code=None, page=1, size=50):
@@ -14,7 +19,10 @@ class GameUtilities:
             size (int): The number of results per page.
 
         Returns:
-            list: A list of tiles containing the specified content.
+            #! TODO: Set your mind - List of Dicts, Dict of Lists of other shit of shit
+            list: A list of map tiles containing the specified content.
+        Example:
+            get_tiles_with_content(content_type="monster", content_code="chicken")
         """
         endpoint = "/maps/"
         params = {
@@ -32,7 +40,7 @@ class GameUtilities:
     @staticmethod
     def get_item_info(item_code=None, craft_material=None, craft_skill=None, max_level=None, min_level=None, page=1, size=50):
         """
-        Fetch information about a specific item or a list of items with tunable parameters.
+        Get the information about a specific item or a list of items, filtered by parameters.
 
         Args:
             item_code (str): The code of the item to retrieve info for.
@@ -44,18 +52,20 @@ class GameUtilities:
             size (int): The number of results per page.
 
         Returns:
-            dict or list: A dictionary containing item information if item_code is provided,
-                          otherwise a list of items.
+            A dictionary containing item information if item_code is provided
+        Example:
+            get_item_info(item_code="wooden_stick")
         """
         if item_code:
             endpoint = f"/items/{item_code}"
             response = client.get(endpoint)
             if response:
                 return response["data"][0]
-        else:
+            return {}
+        else: # Full list of items
             endpoint = "/items"
             params = {
-                "page": page,
+                "page": page, #TBD - remove?
                 "size": size,
                 "craft_material": craft_material,
                 "craft_skill": craft_skill,
@@ -63,6 +73,7 @@ class GameUtilities:
                 "min_level": min_level
             }
             # Remove None values from params
+            # Filter empty values:
             params = {k: v for k, v in params.items() if v is not None}
 
             response = client.get(endpoint, params=params)
@@ -83,8 +94,13 @@ class GameUtilities:
             size (int): The number of results per page.
 
         Returns:
-            dict or list: A dictionary containing monster information if monster_code is provided,
+            #! TODO: fix - dict or list
+            dict: A dictionary containing monster information if monster_code is provided,
                           otherwise a list of monsters.
+
+        Example:
+            #!TODO: Fix
+            get_monster_info(...
         """
         if monster_code:
             endpoint = f"/monsters/{monster_code}"
@@ -150,7 +166,8 @@ class GameUtilities:
     @staticmethod
     def get_events(page=1, size=50):
         """
-        Fetch a list of events with pagination.
+        Fetch a list of events with pagination. (remove pagination)
+        This is about the events, currently happening on server
 
         Args:
             page (int): The page number to fetch.
@@ -173,7 +190,8 @@ class GameUtilities:
     @staticmethod
     def get_ge(page=1, size=50):
         """
-        Fetch a list of geographical entities with pagination.
+        Fetch a list of grand exchange items
+        (Free market between the players - items exchange list)
 
         Args:
             page (int): The page number to fetch.

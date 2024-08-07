@@ -1,4 +1,13 @@
-import math
+"""
+This library manages bots, by means of the following functions:
+
+- kill_bot(character_name, monster_type, number_of_monsters) - kills the specified number of monsters of the given type
+- gathering_bot(character_name, resource_type, number_of_resources) - gathers the specified number of resources of the given type
+"""
+
+#! TODO: Revise this library. Not sure it is needed
+# import math # The entire library is very large - please only import the necessary functions
+# import math
 
 import menuHandler as mH
 from actions import GameActions as Ga

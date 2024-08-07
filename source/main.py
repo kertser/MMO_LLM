@@ -11,10 +11,12 @@ def main():
     # Print the title to CLI
     mH.print_title()
 
-    # Get
+    # Get the specific player name
+    #! TODO: Load from the server
     character_name = config.character_list[0]
 
-    # Define characted actions:
+    # Define character actions:
+    #! TODO: reformat the actions to be more readable
     actions = {
         1: mH.handle_move, 2: mH.handle_fight, 3: mH.handle_crafting,
         4: mH.handle_gathering, 5: mH.handle_check_character_status, 6: mH.handle_unequip,
@@ -25,8 +27,9 @@ def main():
     }
 
 
+    # Menu  loop:
     choice = 0 # default value
-    while (choice != 18):
+    while (choice != 18): # Exit value condition
         mH.print_menu() # Pop the list of menu titles
         # get the user choice
         choice = mH.get_int_input("Enter the number of your choice: ")

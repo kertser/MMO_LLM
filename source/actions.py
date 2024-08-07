@@ -1,3 +1,6 @@
+"""
+#!TODO - Make a proper comment here
+"""
 import time
 from connect import client  # Import the singleton client
 

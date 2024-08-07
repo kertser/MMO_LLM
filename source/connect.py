@@ -1,3 +1,7 @@
+"""
+This is a connection library for the API.
+Repesenting the connection client to the API.
+"""
 import requests
 from config import TOKEN_PATH, BASE_URL
 import json

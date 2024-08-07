@@ -1,0 +1,9 @@
+- Need to create the following thing:
+Scripting mechanism:
+Examples [input as a text string, describing the task completely] -> Script [containing a json file with method names and arguments, required to perform the task]
+Database of items, monsters and shit - we need to know how to extract the JSON files with this data.
+
+How LLM works:
+Text Input (required action like "go there and kill 100500 demons") -> LLM (reads data from RAG/LangChain (in our case it is a database or json, or other)
+    and translates action to json script0 -> JSNO script that will be executed by our library engine.
+! result logging shall be implemented as well.

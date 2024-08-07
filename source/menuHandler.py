@@ -1,3 +1,8 @@
+"""
+This is a menu handler for the game. It handles the main menu, options menu, and game menu.
+It also handles the game logic and player movement. Debug only
+#! TODO: Remove the menu handler, if possible
+"""
 from actions import GameActions as Ga
 import json
 
