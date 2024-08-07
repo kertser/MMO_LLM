@@ -47,7 +47,6 @@ class GameActions:
         else:
             data = response.get("data")
             if data:
-                print(f"{character_name} is fighting a {data['monster']}...")
                 print(f"The fight ended successfully. You have {data['fight']['result']}.")
                 cooldown = data['cooldown']['total_seconds']
                 time.sleep(cooldown)
